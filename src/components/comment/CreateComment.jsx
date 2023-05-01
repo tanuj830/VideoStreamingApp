@@ -26,7 +26,7 @@ const username={
      ...username, ...id, ...vidId, ...comment
     }
     console.log(mergeobj)
-    await axios.post("http://localhost:8000/comment", mergeobj).then(res=>setCommentResData(res.data)).catch(err=>console.log(err))
+    await axios.post("https://videostreamingapp.onrender.com/comment", mergeobj).then(res=>setCommentResData(res.data)).catch(err=>console.log(err))
     // await axios.post(`http://localhost:8000/comment/${window.localStorage.getItem("user")}`, username).then(res=>console.log(res.data)).catch(err=>console.log(err))
   }
   

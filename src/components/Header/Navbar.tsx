@@ -21,7 +21,7 @@ const Navbar = () => {
   
   const handleSubmit = (e: any) => {
     e.preventDefault()
-     axios.get(`http://localhost:8000/watch`, {params:{search: query }}).then((res) =>setSearchData(res.data)).catch((err) => console.log(err));
+     axios.get(`https://videostreamingapp.onrender.com/watch`, {params:{search: query }}).then((res) =>setSearchData(res.data)).catch((err) => console.log(err));
 
     if(searchData.length > 0)setShowSearchBar(true)
   };

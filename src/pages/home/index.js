@@ -10,7 +10,7 @@ const Main = () => {
 
   useEffect(() => {
   
-   axios.get("http://localhost:8000/channel/videos/all").then(res=>setData(res.data)).catch(err=>console.log(err))
+   axios.get("https://videostreamingapp.onrender.com/channel/videos/all").then(res=>setData(res.data)).catch(err=>console.log(err))
    console.log(data)
   },[])
   
