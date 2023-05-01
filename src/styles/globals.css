@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button{
+    background: border;
+    padding: 12px 20px;
+    border-radius:50px ;
+    border: solid 1px lightgray;
+    transition: 0.8s;
+}
+.button:hover{
+    background: rgba(211, 211, 211, 0.432);
+}
+.button-colored{
+    background: rgba(59,130,246,.9);
+    padding: 12px 20px;
+    border-radius:50px ;
+    color: white;
+    transition: 0.8s;
+}
+.button-colored:hover{
+    
+    background: rgba(59,130,246,.7);
+}
+/* 
+.bg-img{
+    background: url("https://react.dev/images/meta-gradient.png");
+    background-repeat: no-repeat;
+    width: 80%;
+}  */
+
+
+body{
+  margin: 0;
+  padding: 0;
+font-family: 'Amatic SC', cursive;
+}
