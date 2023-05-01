@@ -5,7 +5,7 @@ import { useRouter} from 'next/router'
 import { BsTypeH1 } from 'react-icons/bs'
 
 
-const Search = ({data}) => {
+const Search = (props: any) => {
 
     const Reload = ()=>{
         window.location.reload()
@@ -20,7 +20,7 @@ const Search = ({data}) => {
   <div className='px-72 container grid grid-cols-1 gap-4 mb-52'>
   <hr />
     {
-      data.length > 0 ? data.map(d=>(
+      props.data.length > 0 ? props.data.map(d=>(
           <Link className='hover:bg-slate-100 px-4 py-4 rounded-lg' href={"/watch/" + d._id}>
           <div className='flex  gap-4'>
             <div className=''>
