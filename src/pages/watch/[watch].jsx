@@ -12,7 +12,7 @@ import { MdTimer10 } from "react-icons/md";
 
 // import ShowComments from "../components/ShowComments";
 export async function  getServerSideProps(ctx){
-  const res= await fetch(`http://localhost:8000/channel/videos/${ctx.query.watch}`)
+  const res= await fetch(`https://videostreamingapp.onrender.com/channel/videos/${ctx.query.watch}`)
   const data = await res.json()
   return {props:{data}}
 }
@@ -34,7 +34,7 @@ const VideoPage = ({data}) => {
   // const idobj= query.asPath.slice(7)
 
 const handleplay = ()=>{
-  axios.get(`http://localhost:8000/channel/videos/view/${query.asPath.slice(7)}` )
+  axios.get(`https://videostreamingapp.onrender.com/channel/videos/view/${query.asPath.slice(7)}` )
   .then((res) => console.log(res.data))
   .catch((err) => console.log(err));
 
@@ -48,7 +48,7 @@ const handleUrlCopied = ()=>{
  
 }   
 const handleLike = ()=>{
-  axios.get(`http://localhost:8000/channel/videos/like/${query.asPath.slice(7)}` )
+  axios.get(`https://videostreamingapp.onrender.com/videos/like/${query.asPath.slice(7)}` )
   .then((res) => console.log(res.data))
   .catch((err) => console.log(err));
   window.location.reload()
@@ -57,7 +57,7 @@ const handleLike = ()=>{
   useEffect(() => {
     
   axios
-  .get(`http://localhost:8000/comment/${data._id}`)
+  .get(`https://videostreamingapp.onrender.com/comment/${data._id}`)
   .then((res) => setComments(res.data))
   .catch((err) => console.log(err));
     },[comments]);
@@ -65,7 +65,7 @@ const handleLike = ()=>{
 
   useEffect(() => {
     axios
-    .get("http://localhost:8000/channel/videos", {
+    .get("https://videostreamingapp.onrender.com/channel/videos", {
       params: {
         tag: data.tags,
       },
