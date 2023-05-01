@@ -19,7 +19,7 @@ const Navbar = () => {
   const [query, setQuery] = React.useState("");
   const [searchData, setSearchData] = React.useState([]);
   
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault()
      axios.get(`http://localhost:8000/watch`, {params:{search: query }}).then((res) =>setSearchData(res.data)).catch((err) => console.log(err));
 
@@ -41,7 +41,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="w-full relative">
-                <form action="GET" className="flex  items-center">
+                <form  className="flex  items-center">
                 <input className="w-full py-1 md:py-2 px-2 md:px-5 border-none rounded-full bg-slate-200" type="text" placeholder="Search" name="search" onChange={e=>setQuery(e.target.value)} />  
             <div className="absolute right-2">
                 <button type="submit"  onClick={handleSubmit}  className="p-1 text-slate-500"><BsSearch /></button> 
