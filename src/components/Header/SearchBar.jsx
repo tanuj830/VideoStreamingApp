@@ -5,7 +5,7 @@ import { useRouter} from 'next/router'
 import { BsTypeH1 } from 'react-icons/bs'
 
 
-const Search = (props: any) => {
+const Search = (props) => {
 
     const Reload = ()=>{
         window.location.reload()
