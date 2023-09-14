@@ -14,6 +14,7 @@ import { MdTimer10 } from "react-icons/md";
 export async function  getServerSideProps(ctx){
   const res= await fetch(`https://videostreamingapp.onrender.com/channel/videos/${ctx.query.watch}`)
   const data = await res.json()
+  
   return {props:{data}}
 }
 
@@ -48,7 +49,7 @@ const handleUrlCopied = ()=>{
  
 }   
 const handleLike = ()=>{
-  axios.get(`https://videostreamingapp.onrender.com/videos/like/${query.asPath.slice(7)}` )
+  axios.get(`https://videostreamingapp.onrender.com/channel/videos/like/${query.asPath.slice(7)}` )
   .then((res) => console.log(res.data))
   .catch((err) => console.log(err));
   window.location.reload()

@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/index.jsx", "src/components/video/Create.jsx", "src/components/Hero/Hero2.jsx", "src/components/Hero/Hero.jsx", "src/components/comment/CreateComment.jsx", "src/components/Header/SearchBar.jsx"],
   "exclude": ["node_modules"]
 }

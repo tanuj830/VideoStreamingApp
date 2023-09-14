@@ -17,8 +17,8 @@ const Create = () => {
   
 // uploading video
     const handleVideo = (e) =>{
-
-        const file = e.target.files[0]
+      e.preventDefault()
+        const file = e.target?.files[0]
     
         if (!file) return;
         
@@ -37,10 +37,12 @@ const Create = () => {
           },
           () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadedUrl) => {
+              console.log(downloadedUrl)
               setVideo({videoURL: downloadedUrl})
             });
           }
         )
+        // console.log(video)
     }
   
 
@@ -52,8 +54,8 @@ const Create = () => {
       if (!file) return;
       
       
-      const storageRef = ref(storage, `files/${file.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, file);
+      const storeRef = ref(storage, `files/${file.name}`);
+      const uploadTask = uploadBytesResumable(storeRef, file);
       
       uploadTask.on("state_changed",
         (snapshot) => {
@@ -66,6 +68,7 @@ const Create = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadedUrl) => {
+            console.log(storeRef)
             setImage({imageURL: downloadedUrl})
           });
         }
@@ -73,32 +76,32 @@ const Create = () => {
   }
 
    // uploading channel image
-   const handleChannelImage = (e) =>{
+//    const handleChannelImage = (e) =>{
 
-    const file = e.target.files[0]
+//     const file = e.target.files[0]
 
-    if (!file) return;
+//     if (!file) return;
     
     
-    const storageRef = ref(storage, `files/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+//     const storageRef = ref(storage, `files/${file.name}`);
+//     const uploadTask = uploadBytesResumable(storageRef, file);
     
-    uploadTask.on("state_changed",
-      (snapshot) => {
-        const progress =
-          Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        setProgresspercentChannelImage(progress);
-      },
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadedUrl) => {
-          setChannelImage({imageURL: downloadedUrl})
-        });
-      }
-    )
-}
+//     uploadTask.on("state_changed",
+//       (snapshot) => {
+//         const progress =
+//           Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+//         setProgresspercentChannelImage(progress);
+//       },
+//       (error) => {
+//         alert(error);
+//       },
+//       () => {
+//         getDownloadURL(uploadTask.snapshot.ref).then((downloadedUrl) => {
+//           setChannelImage({imageURL: downloadedUrl})
+//         });
+//       }
+//     )
+// }
 
   
     const handleChange = (e) =>{
@@ -116,7 +119,7 @@ const Create = () => {
 
         const Data = Object.assign({}, data,video, image, userID)
         console.log(Data)
-        axios.post("http://localhost:8000/channel/create",Data).then(res=>console.log(res.data)).catch(err=>console.log(err))
+        axios.post("https://videostreamingapp.onrender.com/channel/create",Data).then(res=>console.log(res.data)).catch(err=>console.log(err))
     }
   return (
     <div>
